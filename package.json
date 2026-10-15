@@ -1,0 +1,8 @@
+{
+  "name": "vibe-messenger",
+  "version": "1.0.0",
+  "description": "바이브 메신저",
+  "main": "vibe.js",
+  "scripts": { "start": "node vibe.js" },
+  "engines": { "node": ">=22" }
+}

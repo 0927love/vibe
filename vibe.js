@@ -486,7 +486,7 @@ H.bot_remove = (c, r) => {
 };
 const GW = ['피치','하늘','도토리','밤하늘','라떼','모카','구름','솜사탕','별빛','민트','초코','새벽','노을','까치','다람','보리','토마토','레몬','달빛','푸딩','제리','코코','마루','나비','바다','단풍','소라','체리','우유','호랑','해바라기','딸기','쿠키','사이다','오렌지','포도','은하','호두','뭉치','하루','유나','지우','서준','민재','다온','나린','이든','소미','시온','가을'];
 H.room_guests = (c, r) => {
-  const u = U(c); const room = R(r.rid, u.id); need(room.type !== 'dm' && isOwner(room, u.id), '방장만 쓸 수 있어요');
+  const u = U(c); const room = R(r.rid, u.id); need(room.type !== 'dm' && (isOwner(room, u.id) || isAdmin(u.id)), '방장이나 개발자 계정만 쓸 수 있어요');
   room.guests = room.guests || []; const n = Math.max(1, Math.min(50, parseInt(r.n, 10) || 0)); need(n > 0, '인원 수를 입력해 주세요');
   if (r.dir === 'down') {
     const k = Math.min(n, room.guests.length); need(k > 0, '게스트가 없어요'); room.guests.splice(room.guests.length - k, k);
